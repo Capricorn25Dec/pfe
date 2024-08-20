@@ -1,13 +1,19 @@
-// src/App.js
 import React from 'react';
-import ReportForm from './components/ReportForm';
-import './styles/App.css'; // Include your styles
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './Layout'; // Now using Layout as the main component
+import MonitoringNotes from './components/MonitoringNoteContent';
 
-const App = () => (
-  <div>
-    <h1>Report Form</h1>
-    <ReportForm />
-  </div>
-);
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* <Route path="home" element={<Layout />} /> */}
+          <Route path="monitoring-notes" element={<MonitoringNotes />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+}
 
 export default App;
